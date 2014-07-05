@@ -44,9 +44,9 @@ function prompt_lotrfan_setup {
 
   # Set editor-info parameters.
   zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{red}❯%F{yellow}❯%F{green}❯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{red}❯%F{yellow}❯%F{green}❯%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{green}❮%F{yellow}❮%F{red}❮%f%b'
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
@@ -64,13 +64,21 @@ function prompt_lotrfan_setup {
   zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
   zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}◼%f%%b'
   zstyle ':prezto:module:git:info:keys' format \
-    'prompt' ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
+    'prompt' '%F{blue}git%f$(coalesce "%b" "%p" "%c")%s ' \
     'rprompt' '%A%B%S%a%d%m%r%U%u'
 
   # Define prompts.
-  PROMPT='%F{cyan}${_prompt_lotrfan_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}↫$?%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
-# ⏎↫
+  PROMPT='┌─'
+  PROMPT+='%F{yellow}%*%f' # time
+  PROMPT+=' %F{blue}%n%f' # username
+  [[ -n "$SSH_CLIENT" ]] && PROMPT+='@%F{green}%m%f' # hostname (only for ssh)
+  PROMPT+=' %F{cyan}${_prompt_lotrfan_pwd}%f' # pwd
+  PROMPT+='
+'
+  PROMPT+='└─╼ '
+  PROMPT+='${git_info:+${(e)git_info[prompt]}}' # git
+  PROMPT+='%(!.%B%F{red}#%f%b.)${editor_info[keymap]} ' # prompt character(s) ('#' if superuser)
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}↫$?%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}' # ⏎↫
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 
