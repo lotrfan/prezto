@@ -1,0 +1,24 @@
+#
+# A basic prompt
+#
+# Authors:
+#   Jeffrey Tolar <tolar.jeffrey@gmail.com>
+#
+# Screenshots:
+#   <none>
+#
+
+function prompt_lotrfan_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Define prompts.
+  PROMPT='%~%# '
+  RPROMPT=''
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_lotrfan_setup "$@"
+
+# vim: set ft=zsh :
