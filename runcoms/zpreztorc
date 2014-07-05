@@ -31,6 +31,7 @@ zstyle ':prezto:load' pmodule \
   'directory' \
   'spectrum' \
   'pacman' \
+  'archive' \
   'utility' \
   'completion' \
   'fasd' \
