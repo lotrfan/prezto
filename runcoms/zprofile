@@ -6,11 +6,17 @@
 #
 
 #
-# Browser
+# Browser/viewers
 #
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
+  export PDFVIEWER='open'
+else
+  export PDFVIEWER=zathura
+  export TERMINAL=urxvt
+  export BROWSER=browser
+  export CHROMIUM_FLAGS="${CHROMIUM_FLAGS} --enable-print-preview"
 fi
 
 #
@@ -46,6 +52,21 @@ path=(
   /usr/local/{bin,sbin}
   $path
 )
+
+#
+# Go Paths
+#
+if (( $+commands[go] )); then
+export GOPATH="$HOME/dev/go"
+export GOOS=linux
+export GOARCH=amd64
+  if [[ -d "$GOPATH" ]]; then
+    path=(
+      "$GOPATH"
+      $path
+    )
+  fi
+fi
 
 if (( $+commands[cope_path] )); then
   path=(
@@ -89,3 +110,8 @@ if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
 
+
+
+# Allow git to look for a repo across filesystems
+# Used for my bind mounts
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
