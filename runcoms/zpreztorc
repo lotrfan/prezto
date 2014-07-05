@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'pacman' \
   'utility' \
   'completion' \
+  'fasd' \
   'syntax-highlighting' \
   'prompt'
 
