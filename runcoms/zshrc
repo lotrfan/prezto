@@ -12,3 +12,6 @@ fi
 
 # Customize to your needs...
 
+[ -f /usr/bin/keychain ] && eval `keychain --eval -Q -q`
+[ -f "$HOME/.keychain/$HOSTNAME-sh" ] && source "$HOME/.keychain/$HOSTNAME-sh" 2>/dev/null
+[ -f "$HOME/.keychain/$HOSTNAME-sh-gpg" ] && source "$HOME/.keychain/$HOSTNAME-sh-gpg" 2>/dev/null
