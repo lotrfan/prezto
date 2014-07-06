@@ -74,7 +74,7 @@ function _terminal-set-titles-with-path {
   local truncated_path="${abbreviated_path/(#m)?(#c15,)/...${MATCH[-12,-1]}}"
   unset MATCH
 
-  set-window-title "$abbreviated_path"
+  set-window-title ""
   set-tab-title "$truncated_path"
 }
 
