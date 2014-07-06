@@ -22,7 +22,7 @@ fi
 zstyle -s ':prezto:module:pacman' frontend '_pacman_frontend'
 
 if (( $+commands[$_pacman_frontend] )); then
-  alias pacman="$_pacman_frontend"
+  #alias pacman="$_pacman_frontend"
 
   if [[ -s "${0:h}/${_pacman_frontend}.zsh" ]]; then
     source "${0:h}/${_pacman_frontend}.zsh"
