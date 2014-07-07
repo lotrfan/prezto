@@ -268,9 +268,6 @@ for keymap in 'emacs' 'viins'; do
   bindkey -M "$keymap" "$key_info[Left]" backward-char
   bindkey -M "$keymap" "$key_info[Right]" forward-char
 
-  # Expand history on space.
-  bindkey -M "$keymap" ' ' magic-space
-
   # Clear screen.
   bindkey -M "$keymap" "$key_info[Control]L" clear-screen
 
