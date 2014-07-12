@@ -37,8 +37,8 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'fasd' \
-  'syntax-highlighting' \
   'prompt'
+  #'syntax-highlighting' \
 
 #
 # Editor
