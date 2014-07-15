@@ -62,7 +62,7 @@ export GOOS=linux
 export GOARCH=amd64
   if [[ -d "$GOPATH" ]]; then
     path=(
-      "$GOPATH"
+      "$GOPATH"/bin
       $path
     )
   fi
