@@ -22,3 +22,6 @@ zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
 zstyle ':filter-select' extended-search yes
 
 source "${0:h}/external/zaw.zsh"
+
+[[ -d "${0:h}/custom-sources" ]] && for f ("${0:h}/custom-sources"/^*.zwc) do source "${f}" ; done
+unset f
