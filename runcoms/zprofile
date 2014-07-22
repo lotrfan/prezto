@@ -14,7 +14,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export PDFVIEWER='open'
 else
   export PDFVIEWER=zathura
-  export TERMINAL=urxvt
+  export TERMINAL=st-dvtm
   export BROWSER=browser
   export CHROMIUM_FLAGS="${CHROMIUM_FLAGS} --enable-print-preview"
 fi
