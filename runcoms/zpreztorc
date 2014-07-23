@@ -38,6 +38,7 @@ zstyle ':prezto:load' pmodule \
   'archive' \
   'git' \
   'zaw' \
+  'abduco' \
   'utility' \
   'completion' \
   'fasd' \

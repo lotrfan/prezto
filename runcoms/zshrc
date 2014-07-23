@@ -5,6 +5,22 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Launches abduco and dvtm
+launch() {
+    if [[ -z "$@" ]] && which dvtm 2>/dev/null >/dev/null && [[ -z "$DVTM" ]] ; then
+        exec dvtm
+    fi
+
+    if [[ -z "$@" ]] && which abduco_launch 2>/dev/null >/dev/null && [[ -z "$ABDUCO_SESSION" ]] ; then
+        exec abduco_launch
+    fi
+}
+
+if [[ "$TERM" != "linux" ]] ; then
+    launch
+fi
+
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
