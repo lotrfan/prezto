@@ -39,6 +39,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'zaw' \
   'abduco' \
+  'private' \
   'utility' \
   'completion' \
   'fasd' \
