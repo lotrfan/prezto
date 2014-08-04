@@ -63,6 +63,7 @@ zstyle ':completion:*' verbose yes
 
 # Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' completer _complete
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
@@ -77,7 +78,7 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
 # Directories
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 zstyle ':completion:*' squeeze-slashes true
