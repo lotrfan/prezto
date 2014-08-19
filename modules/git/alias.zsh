@@ -28,6 +28,10 @@ zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_subm
 
 # Git
 alias g='git'
+alias ge='GIT_DIR=/root/etc.git GIT_WORK_TREE=/etc sudo git'
+alias gh='GIT_DIR=~/git GIT_WORK_TREE=~ git'
+alias ges='GIT_DIR=/root/etc.git GIT_WORK_TREE=/etc sudo -s'
+alias ghs='GIT_DIR=~/git GIT_WORK_TREE=~ $SHELL'
 
 # Branch (b)
 alias gb='git branch'
