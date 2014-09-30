@@ -50,6 +50,7 @@ alias _='sudo'
 alias b='${(z)BROWSER}'
 alias e='${(z)VISUAL:-${(z)EDITOR}}'
 alias mkdir="${aliases[mkdir]:-mkdir} -p"
+alias cp="${aliases[cp]:-cp} --reflink=auto"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'

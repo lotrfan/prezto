@@ -28,3 +28,10 @@ bindkey -M viins "$key_info[Control]R" zaw-history
 bindkey -M filterselect "$key_info[Control]R" down-line-or-history
 bindkey -M filterselect "$key_info[Control]S" up-line-or-history
 bindkey -M viins "$key_info[Control]S" zaw-cs225-students
+
+
+if [[ $TERM != "linux" ]]; then
+    bindkey -M viins "^H" backward-delete-char
+    bindkey -M viins "^?" delete-char
+    stty erase "^H"
+fi
