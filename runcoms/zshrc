@@ -12,16 +12,14 @@ fi
 
 # Customize to your needs...
 
-if (( ! $+commands[gpg-agent] )); then
-    if ! gpg-agent; then
-        gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info-${HOSTNAME}"
-    fi
-    . "${HOME}/.gpg-agent-info"
+if (( $+commands[gpg-agent] )); then
+    mkdir -p "/dev/shm/$USER/gpg" 
+    [[ -f "/dev/shm/$USER/gpg/gpg-agent-info" ]] && source "/dev/shm/$USER/gpg/gpg-agent-info" &>/dev/null
     export GPG_AGENT_INFO
-    export SSH_AUTH_SOCK
-    #eval `keychain --eval -Q -q --nogui --noask --agents gpg`
-    #[ -f "$HOME/.keychain/$HOSTNAME-sh" ] && source "$HOME/.keychain/$HOSTNAME-sh" 2>/dev/null
-    #[ -f "$HOME/.keychain/$HOSTNAME-sh-gpg" ] && source "$HOME/.keychain/$HOSTNAME-sh-gpg" 2>/dev/null
+    if ! gpg-agent &>/dev/null; then
+        gpg-agent --daemon --no-use-standard-socket --write-env-file "/dev/shm/$USER/gpg/gpg-agent-info" &>/dev/null
+        [[ -f "/dev/shm/$USER/gpg/gpg-agent-info" ]] && source "/dev/shm/$USER/gpg/gpg-agent-info" &>/dev/null
+    fi
 fi
 
 bindkey -M viins "$key_info[Control]R" zaw-history
