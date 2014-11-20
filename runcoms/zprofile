@@ -89,6 +89,8 @@ if [[ -d "$HOME/install/bin" ]]; then
   )
 fi
 
+[[ -f "$HOME/install/local/perlbrew/etc/bashrc" ]] && source "$HOME/install/local/perlbrew/etc/bashrc"
+
 #
 # Less
 #
