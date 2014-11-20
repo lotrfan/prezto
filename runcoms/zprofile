@@ -91,6 +91,10 @@ fi
 
 [[ -f "$HOME/install/local/perlbrew/etc/bashrc" ]] && source "$HOME/install/local/perlbrew/etc/bashrc"
 
+if [[ -d "$HOME/install/share/man" ]]; then
+  export MANPATH="$HOME/install/share/man":$MANPATH
+fi
+
 #
 # Less
 #
