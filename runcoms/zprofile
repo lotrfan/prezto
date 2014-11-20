@@ -68,6 +68,15 @@ export GOARCH=amd64
   fi
 fi
 
+[[ -f "$HOME/install/local/perlbrew/etc/bashrc" ]] && source "$HOME/install/local/perlbrew/etc/bashrc"
+
+if [[ -d "$HOME/install/bin" ]]; then
+  path=(
+    "$HOME/install/bin"
+    $path
+  )
+fi
+
 if (( $+commands[cope_path] )); then
   path=(
     $(cope_path)
@@ -81,15 +90,6 @@ if [[ -d "$HOME/bin" ]]; then
     $path
   )
 fi
-
-if [[ -d "$HOME/install/bin" ]]; then
-  path=(
-    "$HOME/install/bin"
-    $path
-  )
-fi
-
-[[ -f "$HOME/install/local/perlbrew/etc/bashrc" ]] && source "$HOME/install/local/perlbrew/etc/bashrc"
 
 if [[ -d "$HOME/install/share/man" ]]; then
   export MANPATH="$HOME/install/share/man":$MANPATH
