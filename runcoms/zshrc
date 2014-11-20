@@ -21,12 +21,7 @@ bindkey -M filterselect "$key_info[Control]R" down-line-or-history
 bindkey -M filterselect "$key_info[Control]S" up-line-or-history
 bindkey -M viins "$key_info[Control]S" zaw-cs225-students
 
-
-if [[ $TERM == "st" || $TERM == "st-256color" ]] ; then
+#zmodload zsh/terminfo
+if [[ "$terminfo[kbs]" == "" ]] ; then
     stty erase 
-    bindkey -M viins "^?" backward-delete-char
-fi
-if [[ $TERM != "linux" ]] ; then
-    bindkey -M viins "^H" backward-delete-char
-    bindkey -M viins "^?" delete-char
 fi

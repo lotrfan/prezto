@@ -31,8 +31,8 @@ key_info=(
   'Control'   '\C-'
   'Escape'    '\e'
   'Meta'      '\M-'
-  'Backspace' "^?"
-  'Delete'    "^[[3~"
+  'Backspace' "$terminfo[kbs]"
+  'Delete'    "$terminfo[kdch1]"
   'F1'        "$terminfo[kf1]"
   'F2'        "$terminfo[kf2]"
   'F3'        "$terminfo[kf3]"
