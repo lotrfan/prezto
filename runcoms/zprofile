@@ -82,6 +82,13 @@ if [[ -d "$HOME/bin" ]]; then
   )
 fi
 
+if [[ -d "$HOME/install/bin" ]]; then
+  path=(
+    "$HOME/install/bin"
+    $path
+  )
+fi
+
 #
 # Less
 #
