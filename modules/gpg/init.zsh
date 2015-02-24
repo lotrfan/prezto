@@ -29,9 +29,6 @@ export GPG_TTY="$(tty)"
 if grep 'enable-ssh-support' "$_gpg_agent_conf" &> /dev/null; then
   # Override the ssh-agent environment file default path.
   _ssh_agent_env="$_gpg_agent_env"
-
-  # Load the SSH module for additional processing.
-  pmodload 'ssh'
 fi
 
 # Clean up.

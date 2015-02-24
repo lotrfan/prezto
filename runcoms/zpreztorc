@@ -29,7 +29,7 @@ zstyle ':prezto:module:utility:diff' color 'no'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
-  'envoy' \
+  'gpg' \
   'terminal' \
   'editor' \
   'history' \
