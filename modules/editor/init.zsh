@@ -75,6 +75,10 @@ done
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
+autoload -Uz copy-earlier-word
+zle -N copy-earlier-word
+
+
 #
 # Functions
 #
@@ -273,10 +277,6 @@ for keymap in 'emacs' 'viins'; do
   # Clear screen.
   bindkey -M "$keymap" "$key_info[Control]L" clear-screen
 
-  # Expand command name to full path.
-  for key in "$key_info[Escape]"{E,e}
-    bindkey -M "$keymap" "$key" expand-cmd-path
-
   # Duplicate the previous word.
   for key in "$key_info[Escape]"{M,m}
     bindkey -M "$keymap" "$key" copy-prev-shell-word
@@ -287,6 +287,9 @@ for keymap in 'emacs' 'viins'; do
 
   # Bind Shift + Tab to go to the previous menu item.
   bindkey -M "$keymap" "$key_info[BackTab]" reverse-menu-complete
+
+  # Complete in the middle of word.
+  bindkey -M "$keymap" "$key_info[Escape]." copy-earlier-word
 
   # Complete in the middle of word.
   bindkey -M "$keymap" "$key_info[Control]I" expand-or-complete
